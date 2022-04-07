@@ -15,6 +15,8 @@ const GameProvider = ({ children }) => {
   const [totalQuestion, setTotalQuestion] = useState(0);
   const [correctAnswerList, setCorrectAnswerList] = useState([]);
 
+
+  let userDetails;
   const questionCreate = () => {
     setNum1(Math.floor(Math.random() * 10) + 1);
     setNum2(Math.floor(Math.random() * 10) + 1);
@@ -36,36 +38,51 @@ const GameProvider = ({ children }) => {
   }, []);
 
   const startGame = () => {
+    userDetails = localStorage.getItem('userDetails');
+    userDetails = JSON.parse(userDetails);
     questionCreate();
     setLoading(false);
     setTour(tour + 1);
     setQuestionCounter(questionCounter + 1);
+    if(userDetails){
+      setScore(userDetails.score);
+      setTotalQuestion(userDetails.question);
+      setCorrectAnswer(userDetails.correctAnswer);
+ 
+
+      
+    }
     setIsStarted(true);
   };
   const endGame = () => {
     setLoading(false);
-    setIsStarted(!isStarted);
-    setQuestionCounter(0);
-    setTotalQuestion(totalQuestion + questionCounter -1);
-    console.log(totalQuestion + questionCounter - 1);
 
-    let userDetails = {
+    setIsStarted(!isStarted);
+    console.log("total",totalQuestion,"counter",questionCounter)
+    console.log(totalQuestion,questionCounter);
+    let totalLength = 0;
+
+    totalLength +=totalQuestion;
+
+     userDetails = {
       score: score,
       correctAnswer: correctAnswer,
-      question:totalQuestion,
+      question:totalLength,
     };
     localStorage.setItem("userDetails", JSON.stringify(userDetails));
+   
     setCorrectAnswerList([]);
+    setQuestionCounter(0);
   };
   const nextQuestion = () => {
     setTimeout(() => {
       questionCreate();
 
       setQuestionCounter(questionCounter + 1);
-
+      setTotalQuestion(totalQuestion + 1);
       setLoading(false);
       setBackground("");
-    }, 3000);
+    }, 100);
   };
   const answerChecker = (answer) => {
     if (answer === questions.answers[0]) {

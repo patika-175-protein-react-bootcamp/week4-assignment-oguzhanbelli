@@ -39,17 +39,17 @@ function Home() {
   return (
     <div
       className={`mathsQuestion ${
-        questionCounter >= 1 && questionCounter <= 7 ? background : ""
+        questionCounter >= 1 && questionCounter <= 10 ? background : ""
       }`}
     >
       {isStarted ? (
         <div>
-          {questionCounter <= 7 ? (
+          {questionCounter <= 10 ? (
             <div>
               <div className="scoreboard">
                 <h2>Score:{score}</h2>
                 <h2>Tour:{tour}</h2>
-                <h2>Question:{questionCounter}/7</h2>
+                <h2>Question:{questionCounter}/10</h2>
               </div>
               <div className="soru">
                 <svg
@@ -100,29 +100,35 @@ function Home() {
                 flexDirection: "row",
               }}
             >
-              <div style={{ width: "600px",height:"500px",marginBottom:"10%"}}>
-                <h1 className="text" style={{marginLeft:"50px"}}>Final</h1>
+              <div
+                style={{ width: "600px", height: "500px", marginBottom: "10%" }}
+              >
+                <h1 className="text" style={{ marginLeft: "50px" }}>
+                  Final
+                </h1>
 
                 <div className="finalTotals">
                   <h2>Point: {score}</h2>
-                  <h2>Questions: {questionCounter -1}</h2>
+                  <h2>Questions: {questionCounter - 1}</h2>
                   <h2>Correct Answers: {correctAnswerList.length}</h2>
                 </div>
 
-                <button className="startbutton" onClick={() => endGame()}>
+                <button className="startbutton"  onClick={() => endGame()}>
                   Restart
                 </button>
               </div>
 
               <div
                 style={{
-                  width: "550px",
-                  height:"500px",
-                  marginBottom:"10%",
+                  width: "600px",
+                  height: "500px",
+                  marginBottom: "10%",
                   marginLeft: "70px",
                 }}
               >
-                <h1 className="text" style={{marginRight:"30px"}}>All Question</h1>
+                <h1 className="text" style={{ marginRight: "30px"}}>
+                  All Question
+                </h1>
                 {correctAnswerList.map((answerList, idx) => (
                   <div
                     key={idx}
@@ -140,9 +146,15 @@ function Home() {
           </div>
 
           <div className="totals">
-            <h2>Total Point: {userDetails?.score ? userDetails.score :0 }</h2>
-            <h2>Total Questions: {userDetails.question ? userDetails.question : totalQuestion }</h2>
-            <h2>Correct Answers: {userDetails?.correctAnswer ? userDetails.correctAnswer : 0}</h2>
+            <h2>Total Point: {userDetails?.score ? userDetails.score : 0}</h2>
+            <h2>
+              Total Questions:{" "}
+              {userDetails?.question ? userDetails?.question : 0}
+            </h2>
+            <h2>
+              Correct Answers:{" "}
+              {userDetails?.correctAnswer ? userDetails.correctAnswer : 0}
+            </h2>
           </div>
 
           <button onClick={() => startGame()} className="startbutton">

@@ -126,11 +126,17 @@
 }
 
 .finalTotals {
-  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 80px;
 }
 
 .finalTotals h2 {
   inline-size: 500px;
+  margin-bottom: 20px;
+  
   position: relative;
   right: 30px;
   color: #fff;
@@ -141,7 +147,8 @@
 
 
   color: #fff;
-  font-size: 50px !important;
+  margin-top: 3px;
+  font-size: 32px !important;
 }
 
 .answerButton {
@@ -155,6 +162,7 @@
   cursor: pointer;
 }
 .startbutton {
+
   background-color: #2d2d2d;
   border: 37px solid;
   padding: 5px;
