@@ -109,7 +109,7 @@ function Home() {
                 <div className="finalTotals">
                   <h2>Point: {score}</h2>
                   <h2>Questions: {questionCounter - 1}</h2>
-                  <h2>Correct Answers: {Math.abs(userDetails.correctAnswer - correctAnswer)}</h2>
+                  <h2>Correct Answers: { userDetails?.correctAnswer ? Math.abs(userDetails.correctAnswer - correctAnswer) : correctAnswer}</h2>
                 </div>
 
                 <button className="startbutton"  onClick={() => endGame()}>
