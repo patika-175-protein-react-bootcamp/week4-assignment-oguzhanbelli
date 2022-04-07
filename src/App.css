@@ -1,0 +1,194 @@
+* {
+  font-family: "Handlee", cursive;
+
+  padding: 0;
+  margin: 0;
+}
+.mathshome {
+  background-color: #2d2d2d;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  flex-direction: column;
+  width: 100%;
+}
+.text {
+  color: #ff0000;
+  font-size: 60px;
+  font-weight: 400;
+
+  border-bottom: 10px solid #ff0000;
+  border-top-right-radius: 20px;
+}
+.mathsQuestion {
+  min-height: 100vh;
+
+  background-color: #2d2d2d;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+.soru {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 10px;
+  width: 100%;
+
+  gap: 30px;
+  font-size: 48px;
+  right: 50px;
+  color: #fff;
+  z-index: 2;
+  bottom: 130px;
+  height: 300px;
+}
+.answers {
+  background-color: #2d2d2d;
+  position: fixed;
+  float: right;
+  display: flex;
+  justify-content: space-evenly;
+  bottom: 40px;
+  right: 210px;
+  width: 220px;
+  z-index: 3;
+}
+
+.answers li {
+  background-color: #2d2d2d;
+  list-style-type: none;
+}
+
+.answers ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.answers ul :nth-child(2) {
+  position: relative;
+  left: 160px;
+  bottom: 10px;
+  margin-left: 40px;
+}
+.answerCorrect {
+  background-color: yellowgreen !important;
+}
+
+.answerCorrect button {
+  cursor: none;
+}
+
+.answerNotCorrect {
+  background-color: red !important;
+}
+.answersButton {
+  background-color: #2d2d2d;
+  padding: 10px;
+  color: white;
+  font-size: 30px !important;
+  width: 230px;
+  z-index: 10;
+}
+.sorutext {
+  height: 80px;
+  position: relative;
+  top: 200px;
+  right: 550px;
+  z-index: 30;
+  font-size: 78px;
+}
+.scoreboard {
+  font-weight: 100;
+  flex-wrap: wrap;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  gap: 40px;
+  font-size: 27px;
+
+  color: #fff;
+}
+.totals h2 {
+  padding-top: 20px;
+}
+.totals h2 {
+  color: #fff;
+  font-size: 50px !important;
+}
+
+.finalTotals {
+  padding: 100px;
+}
+
+.finalTotals h2 {
+  inline-size: 500px;
+  position: relative;
+  right: 30px;
+  color: #fff;
+  font-size: 50px !important;
+}
+
+.allquestion {
+
+
+  color: #fff;
+  font-size: 50px !important;
+}
+
+.answerButton {
+  background-color: #2d2d2d;
+  border: 50px solid;
+
+  color: #fff;
+
+  border-image: url('data:image/svg+xml,<svg width="300" height="190" viewBox="0 0 203 178" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.6845 123.733C-22.3844 43.9272 60.1765 8.10654 105.37 9.33661C109.791 6.97489 102.546 5.64641 98.3701 5.27739C62.8783 2.81726 0 26.3115 0 83.1405C0 164.694 79.2118 175.764 97.6332 177.61C131.529 181.005 211.477 163.218 202.267 86.4617C193.056 9.70561 116.791 -1.29401 92.4752 0.111112C77.1487 0.996765 80.6856 3.92431 84.3698 5.27739C164.687 -2.47203 194.53 63.5825 194.53 97.1632C194.53 189.787 49.7377 187.573 17.6845 123.733Z" fill="white"/>  </svg>')
+    60;
+  cursor: pointer;
+}
+.startbutton {
+  background-color: #2d2d2d;
+  border: 37px solid;
+  padding: 5px;
+
+  color: #fff;
+  font-size: 50px;
+
+  border-image: url('data:image/svg+xml,<svg width="550" height="250" viewBox="0 0 447 139" fill="white" xmlns="http://www.w3.org/2000/svg"> <path d="M28.965 97.6124C-59.2656 35.2924 132.507 6.33039 232.022 7.29094C241.757 5.44668 225.802 4.40928 216.608 4.1211C138.456 2.19999 0 20.5466 0 64.9243C0 128.609 174.422 137.254 214.986 138.695C289.622 141.346 465.667 127.457 445.385 67.5178C425.103 7.5791 257.171 -1.01049 203.628 0.0867675C169.879 0.778373 177.667 3.06449 185.78 4.1211C362.636 -1.93041 440.737 49.1335 440.737 75.3567C440.737 147.687 99.5451 147.465 28.965 97.6124Z" fill="white"/> </svg>')
+    75;
+  cursor: pointer;
+}
+
+textarea {
+  font-size: 24px;
+  border: 100px solid black;
+  padding: 2rem 1rem;
+  min-height: 3em;
+  resize: both;
+  background: #2d2d2d;
+  filter: drop-shadow(0px 0px 1px red);
+}
+
+@media only screen and (max-width: 1300px) {
+  .answersButton {
+    background-color: #2d2d2d;
+
+    color: white;
+    font-size: 30px !important;
+    width: 210px;
+  }
+  .answers{
+    right: 190px !important;
+
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Handlee&display=swap");
