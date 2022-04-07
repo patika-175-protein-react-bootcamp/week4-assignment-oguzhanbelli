@@ -135,7 +135,8 @@ const GameProvider = ({ children }) => {
     setIsStarted,
     questionCounter,
     correctAnswerList,
-    totalQuestion
+    totalQuestion,
+    correctAnswer,
   };
   if (loading) {
     return <div>Yükleniyorr..</div>;

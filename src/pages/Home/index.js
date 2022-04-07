@@ -10,9 +10,8 @@ function Home() {
     endGame,
     background,
     tour,
-    totalQuestion,
     questions,
-
+    correctAnswer,
     answerChecker,
     questionCounter,
   } = useGame();
@@ -110,7 +109,7 @@ function Home() {
                 <div className="finalTotals">
                   <h2>Point: {score}</h2>
                   <h2>Questions: {questionCounter - 1}</h2>
-                  <h2>Correct Answers: {correctAnswerList.length}</h2>
+                  <h2>Correct Answers: {Math.abs(userDetails.correctAnswer - correctAnswer)}</h2>
                 </div>
 
                 <button className="startbutton"  onClick={() => endGame()}>
