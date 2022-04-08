@@ -15,8 +15,8 @@ const GameProvider = ({ children }) => {
   const [totalQuestion, setTotalQuestion] = useState(0);
   const [correctAnswerList, setCorrectAnswerList] = useState([]);
 
-
   let userDetails;
+  userDetails = localStorage.getItem("userDetails");
   const questionCreate = () => {
     setNum1(Math.floor(Math.random() * 10) + 1);
     setNum2(Math.floor(Math.random() * 10) + 1);
@@ -38,19 +38,15 @@ const GameProvider = ({ children }) => {
   }, []);
 
   const startGame = () => {
-    userDetails = localStorage.getItem('userDetails');
     userDetails = JSON.parse(userDetails);
     questionCreate();
+    setScore(0);
     setLoading(false);
     setTour(tour + 1);
     setQuestionCounter(questionCounter + 1);
-    if(userDetails){
-      setScore(userDetails.score);
+    if (userDetails) {
       setTotalQuestion(userDetails.question);
       setCorrectAnswer(userDetails.correctAnswer);
- 
-
-      
     }
     setIsStarted(true);
   };
@@ -58,19 +54,26 @@ const GameProvider = ({ children }) => {
     setLoading(false);
 
     setIsStarted(!isStarted);
-    console.log("total",totalQuestion,"counter",questionCounter)
-    console.log(totalQuestion,questionCounter);
+    console.log("total", totalQuestion, "counter", questionCounter);
+    console.log(totalQuestion, questionCounter);
+
     let totalLength = 0;
-
-    totalLength +=totalQuestion;
-
-     userDetails = {
-      score: score,
+    let totalScore = 0;
+    userDetails = JSON.parse(userDetails);
+    totalLength += totalQuestion;
+    if (userDetails?.score > 0) {
+      console.log("score", score, userDetails.score);
+      totalScore = score;
+      totalScore = +userDetails.score;
+    }
+    totalScore += score;
+    userDetails = {
+      score: totalScore,
       correctAnswer: correctAnswer,
-      question:totalLength,
+      question: totalLength,
     };
     localStorage.setItem("userDetails", JSON.stringify(userDetails));
-   
+
     setCorrectAnswerList([]);
     setQuestionCounter(0);
   };
@@ -82,7 +85,7 @@ const GameProvider = ({ children }) => {
       setTotalQuestion(totalQuestion + 1);
       setLoading(false);
       setBackground("");
-    }, 100);
+    }, 3000);
   };
   const answerChecker = (answer) => {
     if (answer === questions.answers[0]) {
